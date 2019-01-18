@@ -142,7 +142,7 @@ const favs = {
 
     getFavTweets(userId) {
         alert("/favTweet/" + userId);
-        db.ref("/favTweet/" + userId).once('value').then((ss) => {
+        db.ref(`/favTweet/${userId}`).once('value').then((ss) => {
             //let tweetURL = ss.val().url;
             console.log("----url----", ss.val())
         });
