@@ -130,7 +130,7 @@ const favs = {
     },
 
     addFav(userId, fType, fData) {
-        db.ref(`/fav${fType}/${userId}`).set(favData, (error) => {
+        db.ref(`/fav${fType}/${userId}`).set(fData, (error) => {
             (error ? console.log("Errors handled " + error) : console.log("Favorite successfully added to the database. "));
         });
     },
