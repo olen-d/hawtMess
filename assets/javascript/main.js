@@ -105,8 +105,7 @@ const favs = {
     addTweet(userId, tweet) {
         let fType = "Tweet";
         let tweetId = $(tweet).attr("data-tweetId");
-        let tweetURL = $(tweetId).attr("href");
-        let tweetURL = tweet.attr$("href");
+        let tweetURL = $(tweet).attr("href");
 
         const fData = {
             "url": tweetURL
