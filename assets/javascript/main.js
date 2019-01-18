@@ -238,7 +238,7 @@ $(document).ready(function () {
     getTweets();
 
     window.setTimeout(() => {   // It would be nice to do this with a promise so that when getTweets is done the listner is added. But this works.
-        $(".favThis").on("click", function () {
+        $(".favThis").on("click", function () {alert(hGlobal.userId);
             favs.addTweet(hGlobal.userId, this);
         });
     }, 1000);    
