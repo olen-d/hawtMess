@@ -145,7 +145,7 @@ const favs = {
         alert("/favTweet/" + userId);
         db.ref(`/favTweet/${userId}`).once('value').then((ss) => {
             //let tweetURL = ss.val().url;
-            console.log("----url----", ss.val())
+            console.log("----url----", ss.val().url)
         });
     }
 }
