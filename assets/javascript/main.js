@@ -144,8 +144,13 @@ const favs = {
         let userId = hGlobal.userId;
         alert("/favTweet/" + userId);
         db.ref(`/favTweet/${userId}`).once('value').then(function(ss)  {
+            ss.forEach((child) => {
+                console.log(child.key, child.val()); 
+                this.intVal.push(child.val());
+                console.log("intVal",this.intVal);
+            });
             //let tweetURL = ss.val().url;
-            console.log("----url----", ss.val())
+            //console.log("----url----", ss.val())
         });
     }
 }
