@@ -104,14 +104,13 @@ const addUser = (userId, userData) => {
 const favs = {
     addTweet(userId, tweet) {
         let fType = "Tweet";
-        let tweetId = $(tweet).attr("data-tweetId");
-        let tweetURL = $(tweet).attr("href");
+        let tweetURL = $(tweet).attr("data-tweetURL");
 
         const fData = {
             "url": tweetURL
         }
 
-        favs.addFav(userId, fType, fData);
+        //favs.addFav(userId, fType, fData);
     },
 
     addTrend(userId, trend) {
@@ -219,7 +218,7 @@ function getTweets() {
                 (@${screenname}) <a id ="${tweetID}"href="${embedUrl}"> ${tweetDate}</a ></blockquote>
                             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                             <div>
-                                <button class ="btn btn-primary favThis" data-tweetId="${idString}">Fave it</button>
+                                <button class ="btn btn-primary favThis" data-tweetURL="${embedUrl}">Fave it</button>
                             </div>`);
 
                 if (index > tweets.length - 2) {
