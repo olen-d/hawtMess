@@ -142,10 +142,9 @@ const favs = {
 
     getFavTweets() {
         let userId = hGlobal.userId;
-        alert("/favTweet/" + userId);
         db.ref(`/favTweet/${userId}`).once('value').then(function(ss)  {
             ss.forEach((child) => {
-                console.log("---", child.key, child.val()); 
+                console.log("--22--", child.key, child.val()); 
                 this.intVal.push(child.val());
                 console.log("intVal",this.intVal);
             });
