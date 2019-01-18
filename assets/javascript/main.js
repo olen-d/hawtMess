@@ -110,7 +110,7 @@ const favs = {
             "url": tweetURL
         }
 
-        //favs.addFav(userId, fType, fData);
+        favs.addFav(userId, fType, fData);
     },
 
     addTrend(userId, trend) {
