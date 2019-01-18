@@ -37,7 +37,7 @@ firebase.auth().getRedirectResult().then(function (result) {
 let provider = new firebase.auth.TwitterAuthProvider();
 
 firebase.auth().onAuthStateChanged(function (user) {
-    if (hGlobal.user) {
+    if (user) {
         // User is signed in
         hGlobal["displayName"] = user.displayName;
         hGlobal["photoURL"] = user.photoURL;
@@ -54,10 +54,10 @@ firebase.auth().onAuthStateChanged(function (user) {
         } else {
             // User doesn't exist, add them to the Firebase Users
             const userData = {
-                name: hGlobal.displayName,
-                photo: hGlobal.photoURL,
-                joined: firebase.database.ServerValue.TIMESTAMP,
-                lastLogin: firebase.database.ServerValue.TIMESTAMP
+                "name": hGlobal.displayName,
+                "photo": hGlobal.photoURL,
+                "joined": firebase.database.ServerValue.TIMESTAMP,
+                "lastLogin": firebase.database.ServerValue.TIMESTAMP
             }
             addUser(hGlobal.userId, userData);
         }
@@ -107,15 +107,17 @@ const favs = {
         let tweetURL = $(tweet).attr("data-tweetURL");
 
         const fData = {
-            "url": tweetURL
+            "url": tweetURL,
+            "dateAdded": firebase.database.ServerValue.TIMESTAMP
         }
 
         favs.addFav(userId, fType, fData);
     },
 
+    // Extra feature, this probably isn't going to make it into the MVP
     addTrend(userId, trend) {
         let fType = "Trend";
-        let trendInfo = trend; //fridgeMagnet.text($(this).attr("data-letter"));
+        let trendInfo = trend;
 
         const fData = {
             "name": $(trendInfo).attr("data-name"),
