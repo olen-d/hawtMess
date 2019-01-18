@@ -111,7 +111,7 @@ const favs = {
             "url": tweetURL
         }
 
-        addFav(userId, fType, fData);
+        favs.addFav(userId, fType, fData);
     },
 
     addTrend(userId, trend) {
@@ -126,7 +126,7 @@ const favs = {
             "tweet_volume": $(trendInfo).attr("tweet_volume")
         }
 
-        addFav(userId, fType, fData);
+        favs.addFav(userId, fType, fData);
     },
 
     addFav(userId, fType, fData) {
@@ -238,7 +238,7 @@ $(document).ready(function () {
     getTweets();
 
     window.setTimeout(() => {   // It would be nice to do this with a promise so that when getTweets is done the listner is added. But this works.
-        $(".favThis").on("click", function () {alert(hGlobal.userId);
+        $(".favThis").on("click", function () {
             favs.addTweet(hGlobal.userId, this);
         });
     }, 1000);    
