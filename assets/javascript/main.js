@@ -148,8 +148,8 @@ const favs = {
         let userId = hGlobal.userId;
         db.ref(`/favTweet/${userId}`).orderByChild("dateAdded").on("child_added", function(ss)  {
             let sv = ss.val();
-            let sk = ss.ref.key;
-            console.log("-+-+-+-+-+-+ 5555 " + sv.url);
+            //let sk = ss.ref.key;
+            console.log("-+-+-+-+-+-+ 1111 " + sv.url);
             //console.log("---GREAT ++++===++++ SUCCeSS--- " + sv.prefChildKey.url);
             
             //let tweetURL = ss.val().url;
