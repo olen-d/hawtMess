@@ -14,7 +14,7 @@ const configFireBase = {
 };
 
 const hGlobal = new Object();
-const hackUid = "";
+let hackUid = "";
 
 // Initialize Firebase
 
