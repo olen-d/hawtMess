@@ -151,7 +151,6 @@ const favs = {
             let sv = ss.val();
             tweetLinks.push(sv.url);
         });
-        console.log("tltltlt " + tweetLinks);
     return tweetLinks;
     }
 }
