@@ -141,7 +141,7 @@ const favs = {
     },
 // olenz
     getFavTweets() {
-        let userId = hGlobal.userId;
+        let userId = hGlobal.userId; alert(userId);
         db.ref(`/favTweet/${userId}`).orderBy("dateAdded").on("child_added", function(ss)  {
             let sv = ss.val();
             console.log(ss.url);
@@ -237,7 +237,7 @@ function getTweets() {
         }
     })
         .then(function (data) {
-            console.log('Data: ', data);
+       //     console.log('Data: ', data);
             let tweets = data.statuses;
             if (tweets.id > parseInt(latestTweet))
                 localStorage.latestTweet = '';
@@ -267,7 +267,7 @@ function getTweets() {
                             </div>`);
 
                 if (index > tweets.length - 2) {
-                    log(latestTweet);
+               //     log(latestTweet);
                     localStorage.latestTweet = idString;
 
                 };
