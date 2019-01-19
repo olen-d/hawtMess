@@ -31,7 +31,6 @@ firebase.auth().getRedirectResult().then(function (result) {
         hGlobal["secret"] = result.credential.secret;
     }
     hGlobal["user"] = result.user;
-    hGlobal["userId"] = result.user.uid;//olenz
 });
 
 // Start a sign in process for an unauthenticated user.
