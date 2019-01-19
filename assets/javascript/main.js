@@ -145,11 +145,11 @@ const favs = {
 // olenz
     getFavTweets() {
         ;
-        let userId = hGlobal.userId; console.log("Stany " + userId);
-        db.ref(`/favTweet/${userId}`).orderByChild("dateAdded").on("child_added", function(ss)  {
+        let userId = hGlobal.userId;
+        db.ref(`/favTweet/${userId}`).orderByChild("dateAdded").on("child_added", function(ss,prevChildKey)  {
             let sv = ss.val();
-            console.log("----Chickenpotpie---" + sv);
-            console.log("---GREAT SUCCSS--- " + ss.url);
+            
+            console.log("---GREAT ++++===++++ SUCCeSS--- " + sv.prefChildKey.url);
             
             //let tweetURL = ss.val().url;
             //console.log("----url----", ss.val())
