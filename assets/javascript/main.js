@@ -14,6 +14,7 @@ const configFireBase = {
 };
 
 const hGlobal = new Object();
+const hackUid = "";
 
 // Initialize Firebase
 
@@ -31,6 +32,7 @@ firebase.auth().getRedirectResult().then(function (result) {
         hGlobal["secret"] = result.credential.secret;
     }
     hGlobal["user"] = result.user;
+    hackUid = result.user;
 });
 
 // Start a sign in process for an unauthenticated user.
@@ -42,6 +44,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         hGlobal["displayName"] = user.displayName;
         hGlobal["photoURL"] = user.photoURL;
         hGlobal["userId"] = user.uid;
+        hackUid = user.uid;
 
         let providerData = user.providerData;
 
@@ -70,6 +73,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                 hGlobal["secret"] = result.credential.secret;
                 hGlobal["user"] = result.user;
                 hGlobal["userId"] = result.user.uid;//olenz
+                hackUid = result.user.uid;
             }
         }).catch(function (error) {
             let c = error.code;
@@ -142,6 +146,7 @@ const favs = {
     },
 // olenz
     getFavTweets() {
+        console.log("++--++--++ Orpheus " + hackUid);
         let userId = hGlobal.userId; console.log("--sss--",hGlobal); console.log("Kenny " + hGlobal.displayName);
         db.ref(`/favTweet/${userId}`).orderBy("dateAdded").on("child_added", function(ss)  {
             let sv = ss.val();
