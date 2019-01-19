@@ -180,6 +180,20 @@
     <script src="assets/js/vendor/what-input.js"></script>
     <script src="assets/js/vendor/foundation.js"></script>
     <script src="assets/js/app.js"></script>
+
+    <!-- JavaScript -->
+    <script src="assets/javascript/main.js"></script>
+    <script>
+      $(document).ready(() => {
+        console.log("----ddEventiDE----", hGlobal);
+        Object.keys(hGlobal).forEach((e) => {
+          console.log("zzzzz" + e)
+          console.log("YYYYY " + hGlobal["e"]);
+        });
+        let favTweets = favs.getFavTweets();
+        console.log("---NINJAS---",favTweets)
+      });
+    </script>
 </body>
 
 </html>
