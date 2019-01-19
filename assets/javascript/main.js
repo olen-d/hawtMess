@@ -146,15 +146,13 @@ const favs = {
     getFavTweets() {
         ;
         let userId = hGlobal.userId;
+        let tweetLinks = [];
         db.ref(`/favTweet/${userId}`).orderByChild("dateAdded").on("child_added", function(ss)  {
             let sv = ss.val();
-            //let sk = ss.ref.key;
-            console.log("-+-+-+-+-+-+ 1111 " + sv.url);
-            //console.log("---GREAT ++++===++++ SUCCeSS--- " + sv.prefChildKey.url);
-            
-            //let tweetURL = ss.val().url;
-            //console.log("----url----", ss.val())
+            tweetLinks.push(sv.url);
         });
+        console.log("tltltlt " + tweetLinks);
+    return tweetLinks;
     }
 }
 
