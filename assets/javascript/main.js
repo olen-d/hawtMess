@@ -146,7 +146,7 @@ const favs = {
     getFavTweets() {
         console.log("++--++--++ Orpheus 99999 " + hGlobal.userId);
         let userId = hGlobal.userId; console.log("--sss--",hGlobal); console.log("Kenny " + hGlobal.displayName);
-        db.ref(`/favTweet/${userId}`).orderBy("dateAdded").on("child_added", function(ss)  {
+        db.ref(`/favTweet/${userId}`).orderByChild("dateAdded").on("child_added", function(ss)  {
             let sv = ss.val();
             console.log("---GREAT SUCCSS--- " + ss.url);
             
