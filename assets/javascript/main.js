@@ -46,6 +46,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         hGlobal["photoURL"] = user.photoURL;
         hGlobal["userId"] = user.uid;
         hackUid = user.uid;
+        console.log("_______user " + user);
 
         let providerData = user.providerData;
 
@@ -75,6 +76,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                 hGlobal["user"] = result.user;
                 hGlobal["userId"] = result.user.uid;//olenz
                 hackUid = result.user.uid;
+                console.log("[[[[]]]]] " + result.credential);
             }
         }).catch(function (error) {
             let c = error.code;
