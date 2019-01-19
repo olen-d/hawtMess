@@ -149,7 +149,7 @@ const favs = {
         db.ref(`/favTweet/${userId}`).orderByChild("dateAdded").on("child_added", function(ss)  {
             let sv = ss.val();
             let sk = ss.ref.key;
-            console.log("-+-+-+-+-+-+ " + sv.sk.url);
+            console.log("-+-+-+-+-+-+ 5555 " + sv.url);
             //console.log("---GREAT ++++===++++ SUCCeSS--- " + sv.prefChildKey.url);
             
             //let tweetURL = ss.val().url;
