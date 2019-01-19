@@ -241,9 +241,9 @@ function getTweets() {
             let tweets = data.statuses;
             if (tweets.id > parseInt(latestTweet))
                 localStorage.latestTweet = '';
-            log("$##$#$#$#$#$#$#$#$", tweets.length);
+         //   log("$##$#$#$#$#$#$#$#$", tweets.length);
             tweets.forEach(function (el, index) {
-                log("element------------", el, 'Index', index)
+               // log("element------------", el, 'Index', index)
                 let tweetID = el.id;
                 let username = el.user.name.trim();
                 let userId = el.user.id_str;
@@ -252,7 +252,7 @@ function getTweets() {
                 let text = el.text;
                 let embedUrl = 'https://twitter.com/' + userId + '/statuses/' + idString + '?ref_src=twsrc%5Etfw';
                 embedUrl = embedUrl.replace(' ', '');
-                log(embedUrl);
+          //      log(embedUrl);
                 let tweetDate = el.created_at;
                 tweetDate = tweetDate.slice(0, 20);
                 $('.tweet-area').append(`
