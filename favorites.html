@@ -165,8 +165,9 @@
     <script>
       $(document).ready(() => {
         console.log("----EventiDE----", hGlobal);
-        hGlobal.forEach((e) => {
-          console.log("YYYYY " + e);
+        Object.keys(hGlobal).forEach((e) => {
+          console.log("zzzzz" + e)
+          console.log("YYYYY " + hGlobal["e"]);
         });
         let favTweets = favs.getFavTweets();
         console.log("---NINJAS---",favTweets)
