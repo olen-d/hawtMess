@@ -139,21 +139,58 @@ const favs = {
     deleteFav() {
 
     },
-
+// olenz
     getFavTweets() {
         let userId = hGlobal.userId;
-        db.ref(`/favTweet/${userId}`).once('value').then(function(ss)  {
-            ss.forEach((child) => {
-                console.log("--22--", child.key, child.val()); 
-                this.intVal.push(child.val());
-                console.log("intVal",this.intVal);
-            });
+        db.ref(`/favTweet/${userId}`).orderBy("dateAdded").on("child_added", function(ss)  {
+            let sv = ss.val();
+            console.log(ss.url);
+            
             //let tweetURL = ss.val().url;
             //console.log("----url----", ss.val())
         });
     }
 }
 
+
+displaySchedule() {
+    trainsRef.orderByChild("name").on("child_added", function(snapshot) {
+
+        let sv = snapshot.val();
+        let sk = snapshot.ref.key;
+
+        let nextArrival = 0;
+        let minutesAway = 0;
+
+        let first = sv.first;
+        let freq = sv.frequency;
+
+        let times = trainSchedules.updateTimes(first, freq);
+        
+        let newRow = `<tr id=\"${sk}\" data-first=\"${first}\" data-frequency=\"${freq}\"><th scope=\"row\" class=\"name\" >${sv.name}</th><td class=\"dest\">${sv.destination}</td><td class=\"freq\">${freq}</td><td class=\"next-arrival\">${times.nextArrival}</td><td class=\"minutes-away\">${times.minutesAway}</td><td><a href=\"#edit-train\"><i class=\"fas fa-edit edit\" data-id=\"${sk}\"></i></a></td><td><i class=\"fas fa-times delete\" data-id=\"${sk}\" ></i></td></tr>`;
+        $("#trains").append(newRow);
+
+        //  Event listener to delete train
+        $(`#${sk} .delete`).on("click", function () {
+            trainSchedules.deleteTrain(this);
+        });
+
+        // Event listener to edit train
+        $(`#${sk} .edit`).on("click", function () {
+            trainSchedules.editTrain(this);
+        });
+        
+        // Store train keys for the updates
+        trains.push(sk);
+        
+        // Handle the errors
+      }, (errorObject) => {
+        console.log("Errors handled: " + errorObject.code);
+      });
+},
+
+
+//olenz
 // Filling in stars to add to favorites - still a work in progress....
 // $('[data-rating] .star').on('click', function() {
 //     var selectedCssClass = 'selected';
