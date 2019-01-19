@@ -46,7 +46,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         hGlobal["photoURL"] = user.photoURL;
         hGlobal["userId"] = user.uid;
         hackUid = user.uid;
-        console.log("_______user " + user);
+        console.log("_______user " + user.uid);
 
         let providerData = user.providerData;
 

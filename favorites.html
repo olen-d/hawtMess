@@ -191,8 +191,11 @@
           console.log("zzzzz" + e)
           console.log("YYYYY " + hGlobal["e"]);
         });
-        let favTweets = favs.getFavTweets();
-        console.log("---NINJAS---",favTweets)
+        window.setTimeout(() => {
+          let favTweets = favs.getFavTweets();
+          console.log("---NINJAS---",favTweets);
+        },1000);
+        
       });
     </script>
 </body>
