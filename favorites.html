@@ -163,7 +163,8 @@
     <!-- JavaScript -->
     <script src="assets/javascript/main.js"></script>
     <script>
-      $(document).ready(() => { alert("cheeseburger");
+      $(document).ready(() => {
+        console.log("----EventiDE----", hGlobal.userId);
         let favTweets = favs.getFavTweets();
         console.log("---NINJAS---",favTweets)
       });
