@@ -30,6 +30,7 @@ firebase.auth().getRedirectResult().then(function (result) {
         // For accessing the Twitter API.
         hGlobal["token"] = result.credential.accessToken;
         hGlobal["secret"] = result.credential.secret;
+        console.log("[[[[]]]]] " + result.credential);
     }
     hGlobal["user"] = result.user;
     hackUid = result.user.uid;
