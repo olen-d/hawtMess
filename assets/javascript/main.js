@@ -153,41 +153,41 @@ const favs = {
 }
 
 
-displaySchedule() {
-    trainsRef.orderByChild("name").on("child_added", function(snapshot) {
+// displaySchedule() {
+//     trainsRef.orderByChild("name").on("child_added", function(snapshot) {
 
-        let sv = snapshot.val();
-        let sk = snapshot.ref.key;
+//         let sv = snapshot.val();
+//         let sk = snapshot.ref.key;
 
-        let nextArrival = 0;
-        let minutesAway = 0;
+//         let nextArrival = 0;
+//         let minutesAway = 0;
 
-        let first = sv.first;
-        let freq = sv.frequency;
+//         let first = sv.first;
+//         let freq = sv.frequency;
 
-        let times = trainSchedules.updateTimes(first, freq);
+//         let times = trainSchedules.updateTimes(first, freq);
         
-        let newRow = `<tr id=\"${sk}\" data-first=\"${first}\" data-frequency=\"${freq}\"><th scope=\"row\" class=\"name\" >${sv.name}</th><td class=\"dest\">${sv.destination}</td><td class=\"freq\">${freq}</td><td class=\"next-arrival\">${times.nextArrival}</td><td class=\"minutes-away\">${times.minutesAway}</td><td><a href=\"#edit-train\"><i class=\"fas fa-edit edit\" data-id=\"${sk}\"></i></a></td><td><i class=\"fas fa-times delete\" data-id=\"${sk}\" ></i></td></tr>`;
-        $("#trains").append(newRow);
+//         let newRow = `<tr id=\"${sk}\" data-first=\"${first}\" data-frequency=\"${freq}\"><th scope=\"row\" class=\"name\" >${sv.name}</th><td class=\"dest\">${sv.destination}</td><td class=\"freq\">${freq}</td><td class=\"next-arrival\">${times.nextArrival}</td><td class=\"minutes-away\">${times.minutesAway}</td><td><a href=\"#edit-train\"><i class=\"fas fa-edit edit\" data-id=\"${sk}\"></i></a></td><td><i class=\"fas fa-times delete\" data-id=\"${sk}\" ></i></td></tr>`;
+//         $("#trains").append(newRow);
 
-        //  Event listener to delete train
-        $(`#${sk} .delete`).on("click", function () {
-            trainSchedules.deleteTrain(this);
-        });
+//         //  Event listener to delete train
+//         $(`#${sk} .delete`).on("click", function () {
+//             trainSchedules.deleteTrain(this);
+//         });
 
-        // Event listener to edit train
-        $(`#${sk} .edit`).on("click", function () {
-            trainSchedules.editTrain(this);
-        });
+//         // Event listener to edit train
+//         $(`#${sk} .edit`).on("click", function () {
+//             trainSchedules.editTrain(this);
+//         });
         
-        // Store train keys for the updates
-        trains.push(sk);
+//         // Store train keys for the updates
+//         trains.push(sk);
         
-        // Handle the errors
-      }, (errorObject) => {
-        console.log("Errors handled: " + errorObject.code);
-      });
-},
+//         // Handle the errors
+//       }, (errorObject) => {
+//         console.log("Errors handled: " + errorObject.code);
+//       });
+// },
 
 
 //olenz
