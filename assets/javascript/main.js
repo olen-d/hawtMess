@@ -144,10 +144,11 @@ const favs = {
     },
 // olenz
     getFavTweets() {
-        console.log("++--++--++ Orpheus 99999 " + hGlobal.userId);
-        let userId = hGlobal.userId; console.log("--sss--",hGlobal); console.log("Kenny " + hGlobal.displayName);
+        ;
+        let userId = hGlobal.userId; console.log("Stany " + userId);
         db.ref(`/favTweet/${userId}`).orderByChild("dateAdded").on("child_added", function(ss)  {
             let sv = ss.val();
+            console.log("----Chickenpotpie---" + sv);
             console.log("---GREAT SUCCSS--- " + ss.url);
             
             //let tweetURL = ss.val().url;
