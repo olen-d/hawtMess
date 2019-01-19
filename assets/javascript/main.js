@@ -143,7 +143,7 @@ const favs = {
     },
 // olenz
     getFavTweets() {
-        let userId = hGlobal.userId; alert("Elvis " + hGlobal.userID);console.log("----",hGlobal);
+        let userId = hGlobal.userId; console.log("Elvis " + hGlobal.userId);console.log("----",hGlobal);
         db.ref(`/favTweet/${userId}`).orderBy("dateAdded").on("child_added", function(ss)  {
             let sv = ss.val();
             console.log(ss.url);
